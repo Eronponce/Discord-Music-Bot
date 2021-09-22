@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from decouple import config 
 from discord.ext.commands.errors import MissingRequiredArgument, CommandNotFound
 bot = commands.Bot("!")
 
@@ -10,9 +11,9 @@ async def on_ready():
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance (error,MissingRequiredArgument):
-       await ctx.send("Por favor, envie todos os argumentos.")  
+       await ctx.send("Por favor, envie todos os argumentos. Digite help para ver todos os comandos")  
     elif isinstance(error,CommandNotFound):
-       await ctx.send("O comando não existe!")  
+       await ctx.send("O comando não existe!Digite help para ver todos os comandos")  
     else:
         raise error
 
@@ -23,7 +24,7 @@ async def on_message(message):
         return
     await bot.process_commands(message)
 
-@bot.command( name= "play" and "p")
+@bot.command( name= "play" and "p",help="Toca uma musica com um link")
 async def play_music(ctx):
     name = ctx.author.name
     resposta = "olá" + name
@@ -35,5 +36,5 @@ async def play_music(ctx):
 
     
 
-
-bot.run("ODg5NTE5MDkwODMyNjU4NTE0.YUibNQ.JXwy3a7Fpb4f9e1KJC5abJSKPIw")
+TOKEN = config("TOKEN")
+bot.run(TOK)
