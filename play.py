@@ -1,0 +1,21 @@
+import discord
+from discord.ext import commands
+
+
+
+class Play(commands.Cog):
+    """ Play music to the user with a link"""
+    
+    def __init__(self, bot):
+        self.bot = bot
+ 
+    @commands.command( name= "play" and "p",help="Toca uma musica com um link")
+    async def play_music(self,ctx):
+        name = ctx.author.name
+        resposta = "olá" + name
+        await ctx.send(resposta)  
+
+def setup(bot):
+    bot.add_cog(Play(bot))
+
+
