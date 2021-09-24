@@ -3,7 +3,7 @@ from discord.ext.commands import bot
 
 
 class Play(commands.Cog):
-    """ Play music to the user with a link""""
+    """ Play music to the user with a link"""
     
     def __init__(self, bot):
         self.bot = bot
