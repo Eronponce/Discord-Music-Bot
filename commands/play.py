@@ -4,7 +4,7 @@ from discord.ext import commands
 
 
 class Play(commands.Cog):
-    """ Play music to the user with a link"""
+    """ Play music to the user with a link as usual"""
     
     def __init__(self, bot):
         self.bot = bot
